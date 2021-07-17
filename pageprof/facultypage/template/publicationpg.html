@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'splide.min.css'%}">
+</head>
+
+
+<body class="container">
+
+        <header class="header">
+        <div class="first-head">
+            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
+            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+        </div>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="/" class="bit17" style="font-size: 17px; color: var(--blue100); ">Home</a></li>
+            <li><a href="/teaching" class="bit17" style="font-size: 17px;color: var(--blue100);">Teaching</a></li>
+            <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
+            <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
+                    Publications</a></li>
+            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+        </ul>
+    </header>
+
+<!--    items begin her-->
+    <div class="test-flex">
+
+<!--        research section-->
+            <div class="res-book" id="res-book">
+        <div class="title-res bit32">
+            Research
+        </div>
+        <div class="over-wrapper" id="over-wrapper">
+            <div class="over-rect" style="order: 0;">
+                <div class="blue-rect-res" id="blue-rect-res">
+                    <div class="blue-res-body" id="blue-res-body">
+                        <div class="blue-res-head">
+                            <div class="spec bit18">Specialization
+                                <div class="sub-head bit28">Linear Elastic Fracture Mechanics</div>
+                            </div>
+
+
+
+                        </div>
+                        <div class="blue-res-content">
+                            <div class="area-interest bit24">Areas of Interest:
+
+                            </div>
+
+                            <div class="grid-container">
+                                {% for research in researchs %}
+                                <div class="grp-1">
+                                    <div class="all-inclusive"></div>
+                                    <div class="text-all bit18">{{research.name}}</div>
+                                </div>
+                                {%endfor%}
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="over-rect" style="order:1">
+                <div class="tan-rect-res" id="tan-rect-res">
+                    <div class="tan-res-frame" id="tan-res-frame">
+                        <div class="background bit18">Background</div>
+                        <div class="divider-res">
+                        </div>
+
+                        <div class="tan-res-content ast18">
+                            Dr. Nelson Muthu is a product of three well-known universities: IIT Guwahati where he did
+                            his B.Tech in 2008, IIT Bombay and Monash University where he completed his PhD, in 2015, on
+                            application of element-free Galerkin method for linear elastic fracture mechanics problems.
+                            <br><br>
+                            After his PhD, he has worked at Biomedical Engineering and Technology incubation Centre
+                            (BETiC), IIT Bombay on medical device innovation from Dec'15 to July'17. He was a visiting
+                            faculty at Sardar Patel College of Engineering (SPCE), Mumbai where he taught 'Fracture
+                            Mechanics' to masters students for one semester. Parallely, he also worked on structural
+                            health monitoring project which involved detecting cracks in beam like structures.
+                        </div>
+                        <div class="divider-res"></div>
+                        <div class="res-contact ast18" id="res-contact">
+                            <div class="grp-flex">
+                                <div class="cont-img">
+                                    <img src="media/call.svg" />
+                                </div>
+                                <div class="cont-grp">+91 361 2583440</div>
+                            </div>
+                            <div class="grp-flex">
+                                <div class="cont-img">
+                                    <img src="media/email.svg" />
+                                </div>
+                                <div class="cont-grp">nelsonm [at] iitg.ac.in</div>
+                            </div>
+                            <div class="grp-flex">
+                                <div class="cont-img">
+                                    <img src="media/location_on.svg" />
+                                </div>
+                                <div class="cont-grp">Office C-201</div>
+                            </div>
+                        </div>
+
+
+                        <div class="view-cv-res">
+                            <div class="cv-rect">
+                                <div class="cv-text bit22">View CV</div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+<!--books section-->
+                {% if books %}
+        <div class="test-item">
+          <div class="books-frame">
+
+        <div class="title-book bit32">Books</div>
+
+        <div class="book-body">
+
+            <div class="book-body-content book-content">
+
+                <div class="past-students-carousel">
+                    <div class="splide" id="splide-books">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for book in books %}
+                                <div class="splide__slide">
+                                    <div class="inner-flex">
+                                        <div class="line-book"></div>
+                                        <div class="inner-inner-flex">
+                                            <div class="flex-1">
+                                                <div class="ast16 name-pub">{{book.author}}</div>
+                                                <div class="ast16 year-pub">{{book.year}}</div>
+                                            </div>
+
+                                            <div class="book-text bit17">{{book.name}}
+                                            </div>
+
+                                            <div class="partition"></div>
+
+                                            <div class="flex-1">
+                                                <div class="ast17 name-pub" style="color: var(--blue70);">{{book.publisher}}
+                                                </div>
+                                                <div class="ast17 year-pub" style="color: var(--blue70);">{{book.location}}</div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+
+        <div class="menubook" id="menu_book">
+            <img class="image-menu" src="{% static 'media/menu_book.svg'%}">
+        </div>
+
+    </div>
+        </div>
+{% endif %}
+
+
+
+<!--        journals section-->
+    <div class="test-item">
+    <div class="pub-book">
+        <div class="title-pub bit32">Publications</div>
+
+        <div class="pub-body">
+            <div class="pub-nav" id="pub_nav1">
+                <div class="pub-nav-contents ast18">
+                    <div class="tab-active">
+                        <a href="#pub_nav1">Journals</a>
+                    </div>
+                    <div class="line"></div>
+                    <div >
+                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <a href="#pub_nav3">Conferences</a>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <a href="#pub_nav4">Patents</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="pub-body-content">
+                <div class="past-students-carousel">
+                    <div class="splide ver-flex-2" id="splide8">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for publication in publications %}
+                                {% if publication.type == "Journals" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-pub">
+                                        <div class="flex-1">
+                                            <div class="ast16 name-pub">{{publication.author}}</div>
+                                            <div class="ast16 year-pub">{{publication.year}}</div>
+                                        </div>
+
+
+                                        <div class="text-pub bit17">{{publication.title}}</div>
+                                        <div class="sub-pub ast17">{{publication.info}}</div>
+                                        <div class="partition"></div>
+
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="menubook" id="menu_book" style="top : 0px">
+
+            <img class="image-menu" src="{% static 'media/journaltan.svg'%}">
+        </div>
+
+
+    </div>
+    </div>
+
+    <!--        bookchap section-->
+    <div class="test-item">
+    <div class="pub-book">
+
+
+        <div class="pub-body">
+            <div class="pub-nav" id="pub_nav2">
+                <div class="pub-nav-contents ast18">
+                    <div >
+                        <a href="#pub_nav1">Journals</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tab-active">
+                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <a href="#pub_nav3">Conferences</a>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <a href="#pub_nav4">Patents</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="pub-body-content">
+                <div class="past-students-carousel">
+                    <div class="splide ver-flex-2" id="splidej">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'&}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for publication in publications %}
+                                {% if publication.type == "Book_Chapters" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-pub">
+                                        <div class="flex-1">
+                                            <div class="ast16 name-pub">{{publication.author}}</div>
+                                            <div class="ast16 year-pub">{{publication.year}}</div>
+                                        </div>
+
+
+                                        <div class="text-pub bit17">{{publication.title}}</div>
+                                        <div class="sub-pub ast17">{{publication.info}}</div>
+                                        <div class="partition"></div>
+
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="menubook" id="menu_book" style="top : 0px">
+
+            <img class="image-menu" src="{% static 'media/menu_book.svg'%}">
+        </div>
+
+
+    </div>
+    </div>
+
+        <!--        conferencees section-->
+    <div class="test-item">
+    <div class="pub-book">
+
+        <div class="pub-body">
+            <div class="pub-nav" id="pub_nav3">
+                <div class="pub-nav-contents ast18">
+                    <div >
+                        <a href="#pub_nav1">Journals</a>
+                    </div>
+                    <div class="line"></div>
+                    <div >
+                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tab-active">
+                        <a href="#pub_nav3">Conferences</a>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <a href="#pub_nav4">Patents</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="pub-body-content">
+                <div class="past-students-carousel">
+                    <div class="splide ver-flex-2" id="splidebc">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for publication in publications %}
+                                {% if publication.type == "Conferences" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-pub">
+                                        <div class="flex-1">
+                                            <div class="ast16 name-pub">{{publication.author}}</div>
+                                            <div class="ast16 year-pub">{{publication.year}}</div>
+                                        </div>
+
+
+                                        <div class="text-pub bit17">{{publication.title}}</div>
+                                        <div class="sub-pub ast17">{{publication.info}}</div>
+                                        <div class="partition"></div>
+
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="menubook" id="menu_book" style="top : 0px">
+
+            <img class="image-menu" src="{% static 'media/conference.svg'%}">
+        </div>
+
+
+    </div>
+    </div>
+
+                <!--        patnets section-->
+    <div class="test-item">
+    <div class="pub-book">
+
+        <div class="pub-body">
+            <div class="pub-nav" id="pub_nav4">
+                <div class="pub-nav-contents ast18">
+                    <div >
+                        <a href="#pub_nav1">Journals</a>
+                    </div>
+                    <div class="line"></div>
+                    <div >
+                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                    </div>
+                    <div class="line"></div>
+                    <div >
+                        <a href="#pub_nav3">Conferences</a>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tab-active">
+                        <a href="#pub_nav4">Patents</a>
+                    </div>
+                </div>
+            </div>
+                        <div class="pub-body-content">
+                <div class="past-students-carousel">
+                    <div class="splide ver-flex-2" id="splidepatt">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for publication in publications %}
+                                {% if publication.type == "Patents" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-pub">
+                                        <div class="flex-1">
+                                            <div class="ast16 name-pub">{{publication.author}}</div>
+                                            <div class="ast16 year-pub">{{publication.year}}</div>
+                                        </div>
+
+
+                                        <div class="text-pub bit17">{{publication.title}}</div>
+                                        <div class="sub-pub ast17">{{publication.info}}</div>
+                                        <div class="partition"></div>
+
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="menubook" id="menu_book" style="top : 0px">
+
+            <img class="image-menu" src="{% static 'media/patt.svg'%}">
+        </div>
+
+
+    </div>
+    </div>
+
+
+<!--        reviews section-->
+
+        {% if reviews %}
+        <div class="test-item">
+    <div>
+        <div class="title-acads bit32">Reviewer</div>
+        <!-- <div class="rev-card-align"> -->
+        <div class="rev-card rev-card-align">
+            <div class="rev-card-box">
+                <div class="rev-card-type bit32">
+                    Journals
+                </div>
+                {% for review in reviews %}
+                <div class="rev-card-name bit17">
+                    {{review.name}}
+                </div>
+                <div class="rev-card-line">
+                </div>
+                {%endfor%}
+            </div>
+            <div class="rev-card-circle">
+                <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                <img src="{% static 'media/journal_logo.svg'%}" alt="" class="acad-card-circle-logo">
+            </div>
+        </div>
+        <!-- </div> -->
+
+    </div>
+        </div>
+{% endif %}
+
+
+
+
+
+
+<!--        footer-->
+            <div class="test-item" style="margin-bottom: 0px;">
+                {% include 'footer.html' %}
+                </div>
+</div>
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide8', {
+        height: '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500: {
+                height: '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+
+    new Splide('#splidej', {
+        height : '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500 : {
+                height : '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+    new Splide('#splidebc', {
+        height : '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500 : {
+                height : '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+
+    new Splide('#splidepatt', {
+        height : '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500 : {
+                height : '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide-books', {
+        height: '200px',
+        rewind: true,
+        arrows: 'slider',
+        pagination: false,
+
+
+        width: '960px',
+        // grid: {
+        //     rows: 1,
+        //     cols: 1,
+        //     gap: {
+        //         row: '0rem',
+        //         col: '0rem',
+        //     }
+        // },
+        perPage: 2,
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            1146: {
+                perPage: 1,
+            },
+            700: {
+                height: '200px',
+                width: '80vw',
+                perPage: 1,
+
+            },
+            500: {
+                height: '150px',
+                width: '80vw',
+                perPage: 1,
+            }
+
+
+        }
+
+
+    }).mount(window.splide.Extensions);
+</script>

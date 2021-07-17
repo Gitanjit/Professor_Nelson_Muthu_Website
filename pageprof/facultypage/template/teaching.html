@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'splide.min.css'%}">
+    <script type="text/javascript">
+        function refreshPage() {
+            var page_y = document.getElementsByTagName("body")[0].scrollTop;
+            window.location.href = window.location.href.split('?')[0] + '?page_y=' + page_y;
+        }
+        window.onload = function() {
+            setTimeout(refreshPage, 35000);
+            if (window.location.href.indexOf('page_y') != -1) {
+                var match = window.location.href.split('?')[1].split("&")[0].split("=");
+                document.getElementsByTagName("body")[0].scrollTop = match[1];
+            }
+        }
+    </script>
+</head>
+
+
+<body class="container">
+
+        <header class="header">
+        <div class="first-head">
+            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
+            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+        </div>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="/" class="bit17" style="font-size: 17px; color: var(--blue100); ">Home</a></li>
+            <li><a href="/teaching" class="bit17" style="font-size: 17px;color: var(--blue100);">Teaching</a></li>
+            <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
+            <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
+                    Publications</a></li>
+            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+        </ul>
+    </header>
+
+<!--    items begin her-->
+    <div class="test-flex">
+<!--        landing with positions section-->
+        <div class="test-item" style="margin-top: -60px;">
+                <div class="small-land-book" id="small-land-book">
+        <div class="small-tan" id="small-tan"></div>
+
+        <div class="small-flex" id="small-flex">
+            <div class="small-land-intro">
+                <div class="sland-intro bit32">Dr. Nelson Muthu</div>
+                <div class="small-sub-intro-land ast24" id="sub-small">Assistant Professor<br /> Department of
+                    Mechanical
+                    Engineering
+                    <br>Indian
+                    Institute of Technology, Guwahati</div>
+
+                <div class="small-rect">
+                    <div class="rect-content">
+                        <marquee direction="up" Scrolldelay="200">
+                            {% for position in positions %}
+                            {{position.name}}<br>
+                            {% endfor %}
+                        </marquee>
+                        <!--scrollable-->
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-2" id="col2">
+
+                <div class="interest-flex-small">
+
+                    <div class="int-left">
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Meshfree Methods</div>
+                        </div>
+
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Medical Device Innovation</div>
+                        </div>
+
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Finite Element Modeling</div>
+                        </div>
+                    </div>
+                    <div class="int-right">
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">NDT</div>
+                        </div>
+
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Composites</div>
+                        </div>
+
+                        <div class="grp-small">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Fracture Mechanics</div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="small-contact ast18">
+                    <div class="grp-land-flex">
+                        <div class="cont-img" style="top:1px">
+                            <img src="{% static 'media/icon-phone.svg'%}" />
+                        </div>
+                        <div class="cont-grp">+91 361 2583440</div>
+                    </div>
+
+                    <div class="grp-land-flex">
+                        <div class="cont-img" style="top:3px">
+                            <img src="{% static 'media/icon-mail.svg'%}" />
+                        </div>
+                        <div class="cont-grp" style="left:6px">nelsonm [at] iitg.ac.in</div>
+                    </div>
+
+                    <div class="grp-land-flex">
+                        <div class="cont-img" style="top:1px">
+                            <img src="{% static 'media/icon-location.svg'%}" />
+                        </div>
+                        <div class="cont-grp">Office C-201</div>
+                    </div>
+                </div>
+
+                <div class="view-cv-small">
+                    <div class="cv-rect" style="background: #FCF2E8;">
+                        <div class="cv-text bit22" style="color: #162E41;">View CV</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+        </div>
+
+<!--        courses section-->
+            <div class="test-item">
+                <div>
+        <div class="title-acads bit32">Courses Taught</div>
+<!--        <div class="view-courses ast24">-->
+<!--            View Teaching & Openings here-->
+<!--            <img src="media/d_arrow.svg" alt="">-->
+<!--        </div>-->
+        <div class="courses-carousel">
+            <div class="splide" id="splide4">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {% for course in courses %}
+
+                        <div class="splide__slide">
+                            <a href="{{course.clink}}" target="_blank">
+                            <div class="courses-card-mini">
+                                <div class="courses-card-mini-box">
+                                    <div class="courses-card-mini-c_code bit32">
+                                        {{course.course_id}}
+                                    </div>
+                                    <div class="courses-card-mini-position bit16">
+                                        {{course.special_position}}
+                                    </div>
+                                    <div class="courses-card-mini-c_name bit18">
+                                        {{course.course_name}}
+                                    </div>
+                                    <div class="courses-card-mini-duration bit16">
+                                        {{course.times_conducted}}
+                                    </div>
+                                </div>
+                                <div class="courses-card-circle">
+                                    <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                                    <img src="/media/{{course.company.image}}" alt="" class="acad-card-circle-logo">
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+
+
+<!--        curr btech students-->
+            <div class="test-item" style="margin-bottom: 60px;">
+    <div class="curr-book">
+        <div class="title-curr bit32">Current Students And Staff</div>
+
+        <div class="curr-body">
+            <div class="curr-nav" id="curr_nav1">
+
+                <div class="curr-nav-contents ast18">
+                    <div class="tab-active">
+                        <a href="#curr_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="curr-body-content">
+
+                <div class="grp-curr">
+                    <div class="current-carousel">
+                        <div class="splide" id="splide61" style="display: flex !important;
+                            flex-direction: row-reverse !important;
+                            align-items: center !important;
+                            justify-content: space-between !important;
+                            width: auto !important;">
+
+                            <div class="splide__arrows" style="display: flex !important;
+                                flex-direction: column !important;
+                                align-items: flex-start !important;
+                                justify-content: space-between !important;
+                                max-width: 16px !important;
+                                min-height: 400px !important;">
+                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
+                                            class="v_carousel_arrow_prev_pos">
+                                    </button>
+                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
+                                            class="v_carousel_arrow_next_pos">
+                                    </button>
+                            </div>
+                            <div class="splide__track">
+
+                                <div class="splide__list">
+                                    {% for curr_student in curr_students %}
+                                {% if curr_student.ed_level == "B.Tech" %}
+                                    <div class="splide__slide">
+
+                                        <div class="grp-curr-sub">
+                                            <img class="img-curr" src="/media/{{curr_student.image}}">
+                                            <div class="inner-frame-curr">
+                                                <div class="name-curr bit17">{{curr_student.name}}</div>
+                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
+
+                                                <div class="sub-curr-flex">
+                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="partition-curr"></div>
+
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+     </div>
+
+        <!--        curr mtech students-->
+        <div class="test-item" style="margin-bottom: 60px;">
+    <div class="curr-book">
+<!--        <div class="title-curr bit32">Current Students And Staff</div>-->
+
+        <div class="curr-body">
+            <div class="curr-nav" id="curr_nav2">
+
+                <div class="curr-nav-contents ast18">
+                    <div >
+                        <a href="#curr_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#curr_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="curr-body-content">
+
+                <div class="grp-curr">
+                    <div class="current-carousel">
+                        <div class="splide" id="splide62" style="display: flex !important;
+                            flex-direction: row-reverse !important;
+                            align-items: center !important;
+                            justify-content: space-between !important;
+                            width: auto !important;">
+
+                            <div class="splide__arrows" style="display: flex !important;
+                                flex-direction: column !important;
+                                align-items: flex-start !important;
+                                justify-content: space-between !important;
+                                max-width: 16px !important;
+                                min-height: 400px !important;">
+                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
+                                            class="v_carousel_arrow_prev_pos">
+                                    </button>
+                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
+                                            class="v_carousel_arrow_next_pos">
+                                    </button>
+                            </div>
+                            <div class="splide__track">
+
+                                <div class="splide__list">
+                                    {% for curr_student in curr_students %}
+                                {% if curr_student.ed_level == "M.Tech" %}
+                                    <div class="splide__slide">
+
+                                        <div class="grp-curr-sub">
+                                            <img class="img-curr" src="/media/{{curr_student.image}}">
+                                            <div class="inner-frame-curr">
+                                                <div class="name-curr bit17">{{curr_student.name}}</div>
+                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
+
+                                                <div class="sub-curr-flex">
+                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="partition-curr"></div>
+
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+     </div>
+
+                <!--        curr research scholars students-->
+        <div class="test-item" style="margin-bottom: 60px;">
+    <div class="curr-book">
+<!--        <div class="title-curr bit32">Current Students And Staff</div>-->
+
+        <div class="curr-body">
+            <div class="curr-nav" id="curr_nav3">
+
+                <div class="curr-nav-contents ast18">
+                    <div >
+                        <a href="#curr_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div >
+                        <a href="#curr_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#curr_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="curr-body-content">
+
+                <div class="grp-curr">
+                    <div class="current-carousel">
+                        <div class="splide" id="splide63" style="display: flex !important;
+                            flex-direction: row-reverse !important;
+                            align-items: center !important;
+                            justify-content: space-between !important;
+                            width: auto !important;">
+
+                            <div class="splide__arrows" style="display: flex !important;
+                                flex-direction: column !important;
+                                align-items: flex-start !important;
+                                justify-content: space-between !important;
+                                max-width: 16px !important;
+                                min-height: 400px !important;">
+                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
+                                            class="v_carousel_arrow_prev_pos">
+                                    </button>
+                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
+                                            class="v_carousel_arrow_next_pos">
+                                    </button>
+                            </div>
+                            <div class="splide__track">
+
+                                <div class="splide__list">
+                                    {% for curr_student in curr_students %}
+                                {% if curr_student.ed_level == "Research Scholar" %}
+                                    <div class="splide__slide">
+
+                                        <div class="grp-curr-sub">
+                                            <img class="img-curr" src="/media/{{curr_student.image}}">
+                                            <div class="inner-frame-curr">
+                                                <div class="name-curr bit17">{{curr_student.name}}</div>
+                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
+
+                                                <div class="sub-curr-flex">
+                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="partition-curr"></div>
+
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+     </div>
+
+                        <!--        curr staff students-->
+        <div class="test-item" style="margin-bottom: 160px;">
+    <div class="curr-book">
+<!--        <div class="title-curr bit32">Current Students And Staff</div>-->
+
+        <div class="curr-body">
+            <div class="curr-nav" id="curr_nav4">
+
+                <div class="curr-nav-contents ast18">
+                    <div >
+                        <a href="#curr_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div >
+                        <a href="#curr_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div >
+                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#curr_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="curr-body-content">
+
+                <div class="grp-curr">
+                    <div class="current-carousel">
+                        <div class="splide" id="splide64" style="display: flex !important;
+                            flex-direction: row-reverse !important;
+                            align-items: center !important;
+                            justify-content: space-between !important;
+                            width: auto !important;">
+
+                            <div class="splide__arrows" style="display: flex !important;
+                                flex-direction: column !important;
+                                align-items: flex-start !important;
+                                justify-content: space-between !important;
+                                max-width: 16px !important;
+                                min-height: 400px !important;">
+                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
+                                            class="v_carousel_arrow_prev_pos">
+                                    </button>
+                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
+                                            class="v_carousel_arrow_next_pos">
+                                    </button>
+                            </div>
+                            <div class="splide__track">
+
+                                <div class="splide__list">
+                                    {% for curr_student in curr_students %}
+                                {% if curr_student.ed_level == "Project Staff" %}
+                                    <div class="splide__slide">
+
+                                        <div class="grp-curr-sub">
+                                            <img class="img-curr" src="/media/{{curr_student.image}}">
+                                            <div class="inner-frame-curr">
+                                                <div class="name-curr bit17">{{curr_student.name}}</div>
+                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
+
+                                                <div class="sub-curr-flex">
+                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="partition-curr"></div>
+
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+     </div>
+
+
+<!--        passed btech-->
+            <div class="test-item">
+    <div class="past-book">
+        <div class="title-past bit32">Graduated Students and Past Project Staff</div>
+
+        <div class="past-body">
+            <div class="past-nav" id="past_nav1">
+                <div class="past-nav-contents ast18">
+                    <div class="tab-active">
+                        <a href="#past_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="past-body-content">
+                <div class="past-students-carousel" style="--text-size: 16px;">
+                    <div class="splide" id="splide-btech">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for passed_student in passed_students %}
+                                {% if passed_student.ed_level == "B.Tech" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-past">
+                                        <div class="name-past bit17">{{passed_student.name}}</div>
+                                        <div class="text-past ast17">{{passed_students.about|linebreaks}}</div>
+
+                                        <div class="flex-1">
+                                            <a target=”_blank” style="text-decoration: none;"
+                                                class="sub-past ast16">{{passed_student.contact}}</a>
+                                            <div class="year-past ast16">{{passed_student.tenure}}</div>
+                                        </div>
+                                        <div class="partition"></div>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <!--        passed mtech-->
+            <div class="test-item">
+    <div class="past-book">
+
+
+        <div class="past-body">
+            <div class="past-nav" id="past_nav2">
+                <div class="past-nav-contents ast18">
+                    <div>
+                        <a href="#past_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div  class="tab-active">
+                        <a href="#past_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="past-body-content">
+                <div class="past-students-carousel" style="--text-size: 16px;">
+                    <div class="splide" id="splide-mtech">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for passed_student in passed_students %}
+                                {% if passed_student.ed_level == "M.Tech" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-past">
+                                        <div class="name-past bit17">{{passed_student.name}}</div>
+                                        <div class="text-past ast17">{{passed_students.about|linebreaks}}</div>
+
+                                        <div class="flex-1">
+                                            <a target=”_blank” style="text-decoration: none;"
+                                                class="sub-past ast16">{{passed_student.contact}}</a>
+                                            <div class="year-past ast16">{{passed_student.tenure}}</div>
+                                        </div>
+                                        <div class="partition"></div>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+                <!--        passed phd-->
+            <div class="test-item">
+    <div class="past-book">
+
+        <div class="past-body">
+            <div class="past-nav" id="past_nav3">
+                <div class="past-nav-contents ast18">
+                    <div>
+                        <a href="#past_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div  >
+                        <a href="#past_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#past_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="#past_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="past-body-content">
+                <div class="past-students-carousel" style="--text-size: 16px;">
+                    <div class="splide" id="splide-phd">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for passed_student in passed_students %}
+                                {% if passed_student.ed_level == "Research Scholar" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-past">
+                                        <div class="name-past bit17">{{passed_student.name}}</div>
+                                        <div class="text-past ast17">{{passed_students.about|linebreaks}}</div>
+
+                                        <div class="flex-1">
+                                            <a target=”_blank” style="text-decoration: none;"
+                                                class="sub-past ast16">{{passed_student.contact}}</a>
+                                            <div class="year-past ast16">{{passed_student.tenure}}</div>
+                                        </div>
+                                        <div class="partition"></div>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+                        <!--        passed project staff-->
+            <div class="test-item">
+    <div class="past-book">
+
+
+        <div class="past-body">
+            <div class="past-nav" id="past_nav4">
+                <div class="past-nav-contents ast18">
+                    <div>
+                        <a href="#past_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div  >
+                        <a href="#past_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div >
+                        <a href="#past_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#past_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="past-body-content">
+                <div class="past-students-carousel" style="--text-size: 16px;">
+                    <div class="splide" id="splide-work">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                {% for passed_student in passed_students %}
+                                {% if passed_student.ed_level == "Project Staff" %}
+                                <div class="splide__slide" style="width: max-content">
+                                    <div class="grp-past">
+                                        <div class="name-past bit17">{{passed_student.name}}</div>
+                                        <div class="text-past ast17">{{passed_students.about|linebreaks}}</div>
+
+                                        <div class="flex-1">
+                                            <a target=”_blank” style="text-decoration: none;"
+                                                class="sub-past ast16">{{passed_student.contact}}</a>
+                                            <div class="year-past ast16">{{passed_student.tenure}}</div>
+                                        </div>
+                                        <div class="partition"></div>
+
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+<!--        footer-->
+            <div class="test-item" style="margin-bottom: 0px;margin-top: 120px;">
+                {% include 'footer.html' %}
+                </div>
+</div>
+</body>
+
+</html>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
+    // new Splide('#splide4').mount(window.splide.Extensions);
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide4', {
+        height: '600px',
+        rewind: true,
+        padding: {
+            left: '3rem',
+        },
+        grid: {
+            rows: 2,
+            cols: 3,
+            gap: {
+                row: '-2rem',
+                col: '0rem',
+            }
+        },
+    }).mount(window.splide.Extensions);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+    new Splide('#splide5', {
+        perPage: 4,
+        direction: 'ttb',
+        height: '680px',
+        rewind: true,
+        padding: {
+            top: '1rem',
+            bottom: '1rem',
+        },
+    }).mount();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+    new Splide('#splide61', {
+        perPage: 2,
+        arrows: 'slider',
+        pagination: true,
+        direction: 'ttb',
+        height: '400px',
+        rewind: true,
+        padding: {
+            right: '4rem'
+        },
+        breakpoints: {
+            700: {
+                height: '250px',
+            }
+
+        }
+
+    }).mount();
+    new Splide('#splide62', {
+        perPage: 2,
+        arrows: 'slider',
+        pagination: true,
+        direction: 'ttb',
+        height: '400px',
+        rewind: true,
+        padding: {
+            right: '4rem'
+        },
+        breakpoints: {
+            700: {
+                height: '250px',
+            }
+
+        }
+
+    }).mount();
+    new Splide('#splide63', {
+        perPage: 2,
+        arrows: 'slider',
+        pagination: true,
+        direction: 'ttb',
+        height: '400px',
+        rewind: true,
+        padding: {
+            right: '4rem'
+        },
+        breakpoints: {
+            700: {
+                height: '250px',
+            }
+
+        }
+
+    }).mount();
+    new Splide('#splide64', {
+        perPage: 2,
+        arrows: 'slider',
+        pagination: true,
+        direction: 'ttb',
+        height: '400px',
+        rewind: true,
+        padding: {
+            right: '4rem'
+        },
+        breakpoints: {
+            700: {
+                height: '250px',
+            }
+
+        }
+
+    }).mount();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide7', {
+        height: '700px',
+        rewind: true,
+        arrows: 'slider',
+        width: '68vw',
+        grid: {
+            rows: 4,
+            cols: 1,
+            gap: {
+                row: '-4rem',
+                col: '0rem',
+            }
+        },
+
+    }).mount(window.splide.Extensions);
+
+        new Splide('#splide71', {
+        height: '700px',
+        rewind: true,
+        arrows: 'slider',
+        width: '68vw',
+        grid: {
+            rows: 4,
+            cols: 1,
+            gap: {
+                row: '-4rem',
+                col: '0rem',
+            }
+        },
+
+    }).mount(window.splide.Extensions);
+
+        new Splide('#splide72', {
+        height: '700px',
+        rewind: true,
+        arrows: 'slider',
+        width: '68vw',
+        grid: {
+            rows: 4,
+            cols: 1,
+            gap: {
+                row: '-4rem',
+                col: '0rem',
+            }
+        },
+
+    }).mount(window.splide.Extensions);
+
+        new Splide('#splide73', {
+        height: '700px',
+        rewind: true,
+        arrows: 'slider',
+        width: '68vw',
+        grid: {
+            rows: 4,
+            cols: 1,
+            gap: {
+                row: '-4rem',
+                col: '0rem',
+            }
+        },
+
+    }).mount(window.splide.Extensions);
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide-btech', {
+        height: '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500: {
+                height: '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+
+    new Splide('#splide-mtech', {
+        height: '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500: {
+                height: '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+
+        new Splide('#splide-phd', {
+        height: '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500: {
+                height: '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+        new Splide('#splide-work', {
+        height: '400px',
+        rewind: true,
+        arrows: 'slider',
+
+        width: '960px',
+        grid: {
+            rows: 2,
+            cols: 1,
+            gap: {
+                row: '0rem',
+                col: '0rem',
+            }
+        },
+
+
+
+        breakpoints: {
+            1200: {
+                width: '80vw',
+            },
+            500: {
+                height: '450px',
+            }
+        }
+
+
+    }).mount(window.splide.Extensions);
+</script>

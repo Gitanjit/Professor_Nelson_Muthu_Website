@@ -1,0 +1,125 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'splide.min.css'%}">
+</head>
+
+<body class="container">
+
+    <div class="proj-popup">
+
+        <div class="proj-small">
+
+            <div class="proj-frame">
+                <div class="proj-view-pop">
+                <a href="/projects#projectsection">
+                <img src="{% static 'media/popup.svg'%}" />
+                </a>
+                </div>
+                <div class="proj-view-name bit24">{{project.name}}</div>
+                <div class="proj-view-foot ast16">{{project.pi}} | {{project.copi}}</div>
+
+                <div class="past-students-carousel">
+                    <div class="splide" id="splide-popup">
+                        <div class="splide__arrows">
+                            <button class="splide__arrow splide__arrow--prev">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
+                            </button>
+                            <button class="splide__arrow splide__arrow--next">
+                                <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
+                            </button>
+                        </div>
+
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                <div class="splide__slide">
+                                    <div>
+                                        <img class="proj-view-img" src="/media/{{project.image}}">
+                                    </div>
+                                </div>
+                                {% for photo in photos %}
+                                <div class="splide__slide">
+                                    <div>
+                                        <img class="proj-view-img" src="/media/{{photo.images}}">
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="proj-view-val bit16">Project Value (in Lakhs) : {{project.project_value}}<br />
+                    {{project.location}} |
+                    {{project.tenure}}<br /> {{project.status}}
+                </div>
+                <div class="proj-view-content ast18"> {{project.about}}
+
+
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide-popup', {
+        height: 'auto',
+        rewind: true,
+        arrows: 'slider',
+        pagination: false,
+
+
+        width: '960px',
+        // grid: {
+        //     rows: 1,
+        //     cols: 1,
+        //     gap: {
+        //         row: '0rem',
+        //         col: '0rem',
+        //     }
+        // },
+        perPage: 1,
+
+
+
+        breakpoints: {
+            // // 1200: {
+            // //     width: '80vw',
+            // // },
+            // // 1146: {
+            // //     perPage: 1,
+            // // },
+            // 700: {
+            //     height: '200px',
+            //     width: '80vw',
+            //     perPage: 1,
+
+            // },
+            // 500: {
+            //     height: '120px',
+            //     width: '60vw'
+            // }
+
+
+        }
+
+
+    }).mount(window.splide.Extensions);
+</script>

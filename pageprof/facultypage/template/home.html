@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="{% static 'splide.min.css'%}">
+</head>
+
+
+<body class="container">
+
+    <!-- <div class="stick"> -->
+
+    <!-- </div> -->
+        <header class="header">
+        <div class="first-head">
+            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
+            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+        </div>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li><a href="/" class="bit17" style="font-size: 17px; color: var(--blue100); ">Home</a></li>
+            <li><a href="/teaching" class="bit17" style="font-size: 17px;color: var(--blue100);">Teaching</a></li>
+            <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
+            <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
+                    Publications</a></li>
+            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+        </ul>
+    </header>
+
+<!--    items begin here-->
+    <div class="test-flex">
+
+<!--        landing ele-->
+        <div class="test-item" style="margin-top: -120px;">
+                <div class="land-book" id="land-book">
+        <div class="land-tan" id="land-tan"></div>
+
+        <div class="land-row" id="land-row">
+
+            <div  style="order: 0;" >
+                <img class="muthu-img" id="muthu-img" src="{% static 'media/Nelson-Muthu.png'%}">
+            </div>
+            <div class="land-cont" style="order: 1;" id="land-cont">
+                <div class="land-intro bit42" style="margin-top:0px;">Dr. Nelson Muthu</div>
+                <div class="sub-intro-land ast32">Assistant Professor<br /> Department of Mechanical Engineering<br> Indian
+                    Institute of Technology, Guwahati</div>
+
+                <div class="interest-flex" id="interest-flex">
+                    <div class="int-left" id="int-left">
+                        <div class="grp-left" style="margin-top: 0;">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Meshfree Methods</div>
+                        </div>
+
+                        <div class="grp-left">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Medical Device Innovation</div>
+                        </div>
+
+                        <div class="grp-left" style="margin-bottom: 0;">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Finite Element Modeling</div>
+                        </div>
+
+                    </div>
+
+                    <div class="int-right" id="int-right">
+                        <div class="grp-left" style="margin-top: 0;">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">NDT</div>
+                        </div>
+
+                        <div class="grp-left">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Composites</div>
+                        </div>
+
+                        <div class="grp-left" style="margin-bottom: 0;">
+                            <div class="all-inclusive-img"></div>
+                            <div class="text-land bit18">Fracture Mechanics</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="land-contact ast18" id="land-contact">
+                    <div class="grp-land-flex">
+                        <div class="cont-img">
+                            <img src="{% static 'media/icon-phone.svg'%}" />
+                        </div>
+                        <div class="cont-grp" style="top:0px">+91 361 2583440</div>
+                    </div>
+
+                    <div class="grp-land-flex">
+                        <div class="cont-img">
+                            <img src="{% static 'media/icon-mail.svg'%}" />
+                        </div>
+                        <div class="cont-grp">nelsonm [at] iitg.ac.in</div>
+                    </div>
+
+                    <div class="grp-land-flex">
+                        <div class="cont-img">
+                            <img src="{% static 'media/icon-location.svg'%}" />
+                        </div>
+                        <div class="cont-grp">Office C-201</div>
+                    </div>
+                </div>
+
+                <div class="view-cv-res" style="margin-bottom:0px;">
+                    <div class="cv-rect" style="background: #FCF2E8;">
+                        <div class="cv-text bit22" style="color: #162E41;">View CV</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+        </div>
+
+<!--        education acad section-->
+        <div class="test-item">
+    <div>
+        <div class="title-acads bit32">Academic</div>
+
+        <div class="acads-carousel" style="--text-size: 16px;">
+            <div class="splide" id="splide1a">
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="acads-arrow-prev-pos">
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="acads-arrow-next-pos">
+                    </button>
+                </div>
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {% for education in educations %}
+                        <div class="splide__slide">
+                            <div class="acad-card">
+                                <div class="acad-card-box">
+                                    <div class="acad-card-year bit32">
+                                        {{education.year}}
+                                    </div>
+                                    <div class="acad-card-degree ast18">
+                                        {{education.position}}
+                                    </div>
+                                    <div class="acad-card-institute ast16">
+                                        {{education.company.title}}
+                                    </div>
+                                </div>
+                                <div class="acad-card-circle">
+                                    <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                                    <img src=/media/{{education.company.image}} alt="" class="acad-card-circle-logo">
+                                </div>
+                            </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>
+
+
+<!--        ecperience section-->
+        <div class="test-item">
+                <div>
+        <div class="title-acads bit32">Work Experience</div>
+
+        <div class="acads-carousel" style="--text-size: 16px;">
+            <div class="splide" id="splide10">
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="acads-arrow-prev-pos">
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="acads-arrow-next-pos">
+                    </button>
+                </div>
+
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {% for experience in experiences %}
+                        <div class="splide__slide">
+                            <div class="acad-card">
+                                <div class="acad-card-box">
+                                    <div class="wrk-exp-card-flex">
+                                        <div class="acad-card-year bit24">
+                                            {{experience.position}}
+                                        </div>
+                                        <div class="acad-card-degree ast16">
+                                            {{experience.company.title}}
+                                        </div>
+                                        <div class="acad-card-institute ast18">
+                                            {{experience.duration}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        </div>
+
+<!--      project section-->
+        <div class="test-item">
+             <div class="proj-book" id="projectsection">
+
+
+        <div class="title-proj bit32">Research Projects</div>
+        <div class="view-all-proj ast24">View Projects & Collaboartions here
+            <img src="media/double_arrow.svg">
+        </div>
+
+        <div class="over-wrapper" id="over-wrapper">
+            <div class="over-rect" style="order: 1;">
+                <div class="tan-rect" id="tan-rect">
+                    <div class="tan-frame" id="tan-frame">
+                        <div class="proj-name bit24">Featured Projects</div>
+                        <!-- <div class="proj-foot ast16">Prof. S.Kanagaraj (PI) | Dr. Nelson Muthu (Co-PI)</div> -->
+                        <div class="proj-carousel">
+                            <div class="splide" id="splide9">
+                                <div class="splide__arrows">
+                                    <button class="splide__arrow splide__arrow--prev">
+                                        <img src="./media/carousel_arrow_prev.svg" alt="" class="acads-arrow-prev-pos">
+                                    </button>
+                                    <button class="splide__arrow splide__arrow--next">
+                                        <img src="./media/carousel_arrow_next.svg" alt="" class="acads-arrow-next-pos">
+                                    </button>
+                                </div>
+                                <div class="splide__track">
+                                    <div class="splide__list">
+                                        {% for project in projects %}
+                                        {% if project.featured == True %}
+                                        <div class="splide__slide">
+                                            <div class="proj-card-new">
+                                                <img src="/media/{{project.image}}" alt="" class="proj-card-img">
+
+                                                <div class="proj-card-new-flex">
+                                                    <div class="proj-card-new-flex-title bit16">
+                                                        {{project.pi}}, {{project.copi}}
+                                                    </div>
+                                                    <div class="proj-card-new-flex-pname bit24">
+                                                        {{project.name}}
+                                                    </div>
+                                                    <div class="proj-card-new-flex-spon bit24">
+                                                        <div class="proj-card-new-flex-title bit16">
+                                                            {{project.type}} <br> {{project.company}} | {{project.tenure}} <br> Status: {{project.status}}
+                                                        </div>
+                                                        <div class="proj-card-new-view bit16">
+                                                            <a href="{{project.proj_id}}">View Project</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="over-rect" style="order:0">
+                <div class="blue-rect" id="blue-rect">
+                    <div class="blue-frame" id="blue-frame">
+                        <div class="tab">
+                            <button class="tablink" onclick="openCity('SP', this)" id="defaultOpen"><div class="ast18 tab-active">Sponsored</div></button>
+                            <button class="tablink" onclick="openCity('CO', this)"><div class="ast18">Consultancy</div></button>
+                        </div>
+                        <div id="SP" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
+                            {% for project in projects %}
+                            {% if project.type == "Sponsored" %}
+                            <div class="grp-blue" id="grp-blue">
+                                <div class="date-blue bit16">{{project.tenure}} </div>
+                                <div class="blue-content ast18">{{project.name}}
+                                </div>
+                                <div class="proj-flex-view">
+                                    <div class="iitg bit16">{{project.company}}
+                                    </div>
+                                    <div class="view-proj bit16">view project</div>
+
+                                </div>
+
+                                <div class="div-blue"></div>
+
+
+
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        </div>
+
+                        <div id="CO" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
+                            {% for project in projects %}
+                            {% if project.type == "Consultancy" %}
+                            <div class="grp-blue" id="grp-blue">
+                                <div class="date-blue bit16">{{project.tenure}} </div>
+                                <div class="blue-content ast18">{{project.name}}
+                                </div>
+                                <div class="proj-flex-view">
+                                    <div class="iitg bit16">{{project.company}}
+                                    </div>
+                                    <div class="view-proj bit16">view project</div>
+
+                                </div>
+
+                                <div class="div-blue"></div>
+
+
+
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+        </div>
+
+<!--        courses section-->
+        <div class="test-item">
+                <div>
+        <div class="title-acads bit32">Courses Taught</div>
+        <div class="view-courses ast24">
+            View Teaching & Openings here
+            <img src="{% static 'media/d_arrow.svg'%}" alt="">
+        </div>
+        <div class="courses-carousel">
+            <div class="splide" id="splide4">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        {% for course in courses %}
+
+                        <div class="splide__slide">
+                            <a href="{{course.clink}}" target="_blank">
+                            <div class="courses-card-mini">
+                                <div class="courses-card-mini-box">
+                                    <div class="courses-card-mini-c_code bit32">
+                                        {{course.course_id}}
+                                    </div>
+                                    <div class="courses-card-mini-position bit16">
+                                        {{course.special_position}}
+                                    </div>
+                                    <div class="courses-card-mini-c_name bit18">
+                                        {{course.course_name}}
+                                    </div>
+                                    <div class="courses-card-mini-duration bit16">
+                                        {{course.times_conducted}}
+                                    </div>
+                                </div>
+                                <div class="courses-card-circle">
+                                    <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                                    <img src="/media/{{course.company.image}}" alt="" class="acad-card-circle-logo">
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+
+                        <!--        curr research scholars students-->
+        <div class="test-item" style="margin-bottom: 160px;">
+    <div class="curr-book">
+        <div class="title-curr bit32">Current Research Scholars</div>
+
+        <div class="curr-body">
+            <div class="curr-nav" id="curr_nav3">
+
+                <div class="curr-nav-contents ast18">
+                    <div >
+                        <a href="/teaching#curr_nav1">B.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div >
+                        <a href="/teaching#curr_nav2">M.Tech</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div class="tab-active">
+                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                    </div>
+                    <div class="line-curr"></div>
+                    <div>
+                        <a href="/teaching#curr_nav4">Project&nbsp;Staff</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="curr-body-content">
+
+                <div class="grp-curr">
+                    <div class="current-carousel">
+                        <div class="splide" id="splide63" style="display: flex !important;
+                            flex-direction: row-reverse !important;
+                            align-items: center !important;
+                            justify-content: space-between !important;
+                            width: auto !important;">
+
+                            <div class="splide__arrows" style="display: flex !important;
+                                flex-direction: column !important;
+                                align-items: flex-start !important;
+                                justify-content: space-between !important;
+                                max-width: 16px !important;
+                                min-height: 400px !important;">
+                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
+                                            class="v_carousel_arrow_prev_pos">
+                                    </button>
+                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
+                                    max-width: 64px !important;
+                                    min-height: 64px !important;
+                                    inset: 0 !important;
+                                    margin: auto !important;
+                                    background: none !important;
+                                    display: flex !important;
+                                    align-items: flex-end;
+                                    justify-content: baseline !important;">
+                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
+                                            class="v_carousel_arrow_next_pos">
+                                    </button>
+                            </div>
+                            <div class="splide__track">
+
+                                <div class="splide__list">
+                                    {% for curr_student in curr_students %}
+                                {% if curr_student.ed_level == "Research Scholar" %}
+                                    <div class="splide__slide">
+
+                                        <div class="grp-curr-sub">
+                                            <img class="img-curr" src="/media/{{curr_student.image}}">
+                                            <div class="inner-frame-curr">
+                                                <div class="name-curr bit17">{{curr_student.name}}</div>
+                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
+
+                                                <div class="sub-curr-flex">
+                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="partition-curr"></div>
+
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+     </div>
+
+        <!--        collabs section-->
+        <div class="test-item">
+               <div>
+                <div class="title-acads bit32">Collaborations</div>
+                <div class="collab-flex">
+                    <div class="collab-flex-col1">
+                        <div class="rev-card">
+                            <div class="rev-card-box">
+                                <div class="rev-card-type bit32">
+                                    Industrial
+                                </div>
+                               {% for collaboration in collaborations %}
+                                <div class="rev-card-name bit17">
+                                    {{collaboration.name}}
+                                </div>
+                                <div class="rev-card-line">
+                                </div>
+                                {%endfor%}
+                            </div>
+                            <div class="rev-card-circle">
+                                <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                                <img src="{% static 'media/indus_logo.svg'%}" alt="" class="acad-card-circle-logo">
+                            </div>
+                        </div>
+                    </div>
+                    {% if collaboration_acads %}
+                    <div class="collab-flex-col2">
+                        <div class="rev-card">
+                            <div class="rev-card-box">
+                                <div class="rev-card-type bit32">
+                                    Academic
+                                </div>
+                                {% for collaboration_acad in collaboration_acads %}
+                                <div class="rev-card-name bit17">
+                                    {{collaboration_acad.name}}
+                                </div>
+                                <div class="rev-card-line">
+                                </div>
+                                {%endfor%}
+                            </div>
+                            <div class="rev-card-circle">
+                                <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
+                                <img src="{% static 'media/book_logo.svg'%}" alt="" class="acad-card-circle-logo">
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            </div>
+
+
+<!--        service section-->
+        <div class="test-item">
+                <div class="ser-book">
+
+        <div class="title-ser bit32">Services</div>
+
+        <div class="ser-body">
+
+            <div class="ser-body-contents">
+                 {% for service in services %}
+                <div class="grp-ser">
+                    <div class="flex-1">
+                        <div class="name-ser bit17">{{service.name}}</div>
+
+                        <div class="year-ser bit17">{{service.tenure}}</div>
+                    </div>
+
+                    <div class="partition-ser"></div>
+
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+        </div>
+
+
+
+<!--        footer-->
+        <div class="test-item" style="margin-bottom: 0px;">
+                {% include 'footer.html' %}
+            </div>
+</div>
+
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
+    // new Splide('#splide4').mount(window.splide.Extensions);
+</script>
+
+<script>
+    // new Splide('#splide4').mount(window.splide.Extensions);
+    new Splide('#splide4', {
+        height: '600px',
+        rewind: true,
+        arrows: 'slider',
+        // width: '1200px',
+        grid: {
+            rows: 2,
+            cols: 3,
+            gap: {
+                row: '-4rem',
+                col: '0rem',
+            }
+        },
+        breakpoints: {
+            '1200': {
+                grid: {
+                    rows: 2,
+                    cols: 2,
+                    gap: {
+                        row: '-4rem',
+                        col: '0rem',
+                    }
+                }
+            },
+            '800': {
+                grid: {
+                    rows: 2,
+                    cols: 1,
+                    gap: {
+                        row: '-4rem',
+                        col: '0rem',
+                    }
+                }
+            },
+        },
+    }).mount(window.splide.Extensions);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+    new Splide('#splide5', {
+        perPage: 4,
+        direction: 'ttb',
+        height: '680px',
+        rewind: true,
+        padding: {
+            top: '1rem',
+            bottom: '1rem',
+        },
+    }).mount();
+</script>
+
+<script>
+    new Splide('#splide10', {
+        perPage: 3,
+        rewind: true,
+        arrows: 'slider',
+        // pagination: false,
+        width: '1100px',
+        // gap: '-5rem',
+        // arrowPath: 'd="M1.41267 29.6527C0.632225 28.8722 0.631536 27.6071 1.41113 26.8258L10.8037 17.4127C11.5827 16.632 11.5827 15.368 10.8037 14.5873L1.41113 5.17421C0.631535 4.39291 0.632226 3.12777 1.41267 2.34733L2.34579 1.41421C3.12683 0.633165 4.39316 0.633165 5.17421 1.41421L18.3458 14.5858C19.1268 15.3668 19.1268 16.6332 18.3458 17.4142L5.17421 30.5858C4.39316 31.3668 3.12683 31.3668 2.34579 30.5858L1.41267 29.6527Z" fill="#435C70"',
+        margin: {
+            top: '2rem',
+        },
+        // padding: {
+        //     left: '3rem',
+        // },
+        breakpoints: {
+            '1120': {
+                perPage: 2,
+            },
+            '745': {
+                perPage: 1,
+            },
+        },
+    }).mount();
+</script>
+
+<script>
+    new Splide('#splide1a', {
+        perPage: 3,
+        rewind: true,
+        arrows: 'slider',
+        // pagination: false,
+        width: '1100px',
+        // gap: '-5rem',
+        // arrowPath: 'd="M1.41267 29.6527C0.632225 28.8722 0.631536 27.6071 1.41113 26.8258L10.8037 17.4127C11.5827 16.632 11.5827 15.368 10.8037 14.5873L1.41113 5.17421C0.631535 4.39291 0.632226 3.12777 1.41267 2.34733L2.34579 1.41421C3.12683 0.633165 4.39316 0.633165 5.17421 1.41421L18.3458 14.5858C19.1268 15.3668 19.1268 16.6332 18.3458 17.4142L5.17421 30.5858C4.39316 31.3668 3.12683 31.3668 2.34579 30.5858L1.41267 29.6527Z" fill="#435C70"',
+        margin: {
+            top: '2rem',
+        },
+        // padding: {
+        //     left: '3rem',
+        // },
+        breakpoints: {
+            '1120': {
+                perPage: 2,
+            },
+            '745': {
+                perPage: 1,
+            },
+        },
+    }).mount();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script>
+    new Splide('#splide9', {
+        perPage: 1,
+        width: '500px',
+        height: '550px',
+        rewind: true,
+
+        arrows: 'slider',
+        padding: {
+            top: '1rem',
+            bottom: '1rem',
+
+        },
+        breakpoints: {
+            '700': {
+                width: '400px',
+
+            }
+        },
+    }).mount();
+</script>
+<script>
+    function openCity(cityName,elmnt) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+
+        tabcontent[i].style.display = "none";
+      }
+      document.getElementById(cityName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+
+        new Splide('#splide63', {
+        perPage: 2,
+        arrows: 'slider',
+        pagination: true,
+        direction: 'ttb',
+        height: '400px',
+        rewind: true,
+        padding: {
+            right: '4rem'
+        },
+        breakpoints: {
+            700: {
+                height: '250px',
+            }
+
+        }
+
+    }).mount();
+</script>
