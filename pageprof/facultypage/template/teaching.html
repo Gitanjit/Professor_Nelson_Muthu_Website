@@ -38,16 +38,20 @@
             <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
             <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
                     Publications</a></li>
-            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+            <li><a type="button" onclick="window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
         </ul>
     </header>
 
 <!--    items begin her-->
     <div class="test-flex">
 <!--        landing with positions section-->
-        <div class="test-item" style="margin-top: -60px;">
+        <div class="test-item" style="margin-top: -10px">
                 <div class="small-land-book" id="small-land-book">
-        <div class="small-tan" id="small-tan"></div>
+        <div class="small-tan techtech" id="small-tan"></div>
 
         <div class="small-flex" id="small-flex">
             <div class="small-land-intro">
@@ -56,7 +60,7 @@
                     Mechanical
                     Engineering
                     <br>Indian
-                    Institute of Technology, Guwahati</div>
+                    Institute of Technology Guwahati</div>
 
                 <div class="small-rect">
                     <div class="rect-content">
@@ -952,16 +956,37 @@
     new Splide('#splide4', {
         height: '600px',
         rewind: true,
-        padding: {
-            left: '3rem',
-        },
+        arrows: 'slider',
+        // width: '1200px',
         grid: {
             rows: 2,
             cols: 3,
             gap: {
-                row: '-2rem',
+                row: '-4rem',
                 col: '0rem',
             }
+        },
+        breakpoints: {
+            '1200': {
+                grid: {
+                    rows: 2,
+                    cols: 2,
+                    gap: {
+                        row: '-4rem',
+                        col: '0rem',
+                    }
+                }
+            },
+            '800': {
+                grid: {
+                    rows: 2,
+                    cols: 1,
+                    gap: {
+                        row: '-4rem',
+                        col: '0rem',
+                    }
+                }
+            },
         },
     }).mount(window.splide.Extensions);
 </script>

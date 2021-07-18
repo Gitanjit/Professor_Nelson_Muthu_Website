@@ -25,7 +25,11 @@
             <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
             <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
                     Publications</a></li>
-            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+            <li><a type="button" onclick="window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
         </ul>
     </header>
 
@@ -42,10 +46,12 @@
                 <div class="blue-rect-res" id="blue-rect-res">
                     <div class="blue-res-body" id="blue-res-body">
                         <div class="blue-res-head">
-                            <div class="spec bit18">Specialization
+                            <div class="spec bit18">Major Specialization
                                 <div class="sub-head bit28">Linear Elastic Fracture Mechanics</div>
                             </div>
-
+                            <div class="spec bit18">Minor Specialization
+                                <div class="sub-head bit28">Linear Elastic Fracture Mechanics</div>
+                            </div>
 
 
                         </div>
@@ -91,20 +97,21 @@
                         <div class="res-contact ast18" id="res-contact">
                             <div class="grp-flex">
                                 <div class="cont-img">
-                                    <img src="media/call.svg" />
+                                    <img src="{% static 'media/call.svg' %}" />
                                 </div>
                                 <div class="cont-grp">+91 361 2583440</div>
                             </div>
                             <div class="grp-flex">
                                 <div class="cont-img">
-                                    <img src="media/email.svg" />
+                                    <img src="{% static 'media/email.svg' %}" />
                                 </div>
                                 <div class="cont-grp">nelsonm [at] iitg.ac.in</div>
                             </div>
-                            <div class="grp-flex">
-                                <div class="cont-img">
-                                    <img src="media/location_on.svg" />
-                                </div>
+                            
+                                <div class="grp-flex">
+                                <div class="cont-img"><a href="https://goo.gl/maps/jMRY1h9vQxq5btF66" style="text-decoration:none" target="_blank">
+                                    <img src="{% static  'media/location_on.svg' %}" />
+                                </div></a>
                                 <div class="cont-grp">Office C-201</div>
                             </div>
                         </div>
@@ -208,19 +215,19 @@
             <div class="pub-nav" id="pub_nav1">
                 <div class="pub-nav-contents ast18">
                     <div class="tab-active">
-                        <a href="#pub_nav1">Journals</a>
+                        <a href="#pub_nav1" style="color:white;text-decoration: underline;text-decoration-color: var(--red);">Journals</a>
                     </div>
                     <div class="line"></div>
                     <div >
-                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                        <a href="#pub_nav2" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Book&nbsp;Chapters</a>
                     </div>
                     <div class="line"></div>
                     <div>
-                        <a href="#pub_nav3">Conferences</a>
+                        <a href="#pub_nav3" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Conferences</a>
                     </div>
                     <div class="line"></div>
                     <div>
-                        <a href="#pub_nav4">Patents</a>
+                        <a href="#pub_nav4" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Patents</a>
                     </div>
                 </div>
             </div>
@@ -293,19 +300,19 @@
             <div class="pub-nav" id="pub_nav2">
                 <div class="pub-nav-contents ast18">
                     <div >
-                        <a href="#pub_nav1">Journals</a>
+                        <a href="#pub_nav1" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Journals</a>
                     </div>
                     <div class="line"></div>
                     <div class="tab-active">
-                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                        <a href="#pub_nav2" style="color:white;text-decoration: underline;text-decoration-color: var(--red);">Book&nbsp;Chapters</a>
                     </div>
                     <div class="line"></div>
                     <div>
-                        <a href="#pub_nav3">Conferences</a>
+                        <a href="#pub_nav3" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Conferences</a>
                     </div>
                     <div class="line"></div>
                     <div>
-                        <a href="#pub_nav4">Patents</a>
+                        <a href="#pub_nav4" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Patents</a>
                     </div>
                 </div>
             </div>
@@ -314,7 +321,7 @@
                     <div class="splide ver-flex-2" id="splidej">
                         <div class="splide__arrows">
                             <button class="splide__arrow splide__arrow--prev">
-                                <img src="{% static 'media/carousel_arrow_prev.svg'&}" alt="" class="past-arrow-prev-pos">
+                                <img src="{% static 'media/carousel_arrow_prev.svg'%}" alt="" class="past-arrow-prev-pos">
                             </button>
                             <button class="splide__arrow splide__arrow--next">
                                 <img src="{% static 'media/carousel_arrow_next.svg'%}" alt="" class="past-arrow-next-pos">
@@ -377,19 +384,19 @@
             <div class="pub-nav" id="pub_nav3">
                 <div class="pub-nav-contents ast18">
                     <div >
-                        <a href="#pub_nav1">Journals</a>
+                        <a href="#pub_nav1" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Journals</a>
                     </div>
                     <div class="line"></div>
                     <div >
-                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                        <a href="#pub_nav2" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Book&nbsp;Chapters</a>
                     </div>
                     <div class="line"></div>
                     <div class="tab-active">
-                        <a href="#pub_nav3">Conferences</a>
+                        <a href="#pub_nav3" style="color:white;text-decoration: underline;text-decoration-color: var(--red);">Conferences</a>
                     </div>
                     <div class="line"></div>
                     <div>
-                        <a href="#pub_nav4">Patents</a>
+                        <a href="#pub_nav4" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Patents</a>
                     </div>
                 </div>
             </div>
@@ -461,19 +468,19 @@
             <div class="pub-nav" id="pub_nav4">
                 <div class="pub-nav-contents ast18">
                     <div >
-                        <a href="#pub_nav1">Journals</a>
+                        <a href="#pub_nav1" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Journals</a>
                     </div>
                     <div class="line"></div>
                     <div >
-                        <a href="#pub_nav2">Book&nbsp;Chapters</a>
+                        <a href="#pub_nav2" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Book&nbsp;Chapters</a>
                     </div>
                     <div class="line"></div>
                     <div >
-                        <a href="#pub_nav3">Conferences</a>
+                        <a href="#pub_nav3" style="color:white;text-decoration: none;text-decoration-color: var(--red);">Conferences</a>
                     </div>
                     <div class="line"></div>
-                    <div class="tab-active">
-                        <a href="#pub_nav4">Patents</a>
+                    <div class="tab-active" >
+                        <a href="#pub_nav4" style="color:white;text-decoration: underline;text-decoration-color: var(--red);">Patents</a>
                     </div>
                 </div>
             </div>

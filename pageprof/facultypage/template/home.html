@@ -28,7 +28,11 @@
             <li><a href="/projects" class="bit17" style="font-size: 17px;color: var(--blue100);"> Projects</a></li>
             <li><a href="/publications" class="bit17" style="font-size: 17px;color: var(--blue100);" href="#research">Research &
                     Publications</a></li>
-            <li><a href="#footer" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
+            <li><a type="button" onclick="window.scroll({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+              });" class="bit17" style="font-size: 17px;color: var(--blue100);">Contact</a></li>
         </ul>
     </header>
 
@@ -36,7 +40,7 @@
     <div class="test-flex">
 
 <!--        landing ele-->
-        <div class="test-item" style="margin-top: -120px;">
+        <div class="test-item" style="margin-top: -10px;">
                 <div class="land-book" id="land-book">
         <div class="land-tan" id="land-tan"></div>
 
@@ -48,7 +52,7 @@
             <div class="land-cont" style="order: 1;" id="land-cont">
                 <div class="land-intro bit42" style="margin-top:0px;">Dr. Nelson Muthu</div>
                 <div class="sub-intro-land ast32">Assistant Professor<br /> Department of Mechanical Engineering<br> Indian
-                    Institute of Technology, Guwahati</div>
+                    Institute of Technology Guwahati</div>
 
                 <div class="interest-flex" id="interest-flex">
                     <div class="int-left" id="int-left">
@@ -103,9 +107,9 @@
                     </div>
 
                     <div class="grp-land-flex">
-                        <div class="cont-img">
+                        <a href="https://goo.gl/maps/jMRY1h9vQxq5btF66" target="_blank"><div class="cont-img">
                             <img src="{% static 'media/icon-location.svg'%}" />
-                        </div>
+                        </div></a>
                         <div class="cont-grp">Office C-201</div>
                     </div>
                 </div>
@@ -124,7 +128,7 @@
 <!--        education acad section-->
         <div class="test-item">
     <div>
-        <div class="title-acads bit32">Academic</div>
+        <div class="title-acads bit32">Academic Background</div>
 
         <div class="acads-carousel" style="--text-size: 16px;">
             <div class="splide" id="splide1a">
@@ -141,14 +145,14 @@
                         {% for education in educations %}
                         <div class="splide__slide">
                             <div class="acad-card">
-                                <div class="acad-card-box">
-                                    <div class="acad-card-year bit32">
+                                <div class="acad-card-box " style="background: var(--tan);">
+                                    <div class="acad-card-year bit32" style="color: var(--blue100);" >
                                         {{education.year}}
                                     </div>
-                                    <div class="acad-card-degree ast18">
+                                    <div class="acad-card-degree ast18" style="color: var(--blue70);">
                                         {{education.position}}
                                     </div>
-                                    <div class="acad-card-institute ast16">
+                                    <div class="acad-card-institute ast16" style="color: var(--blue70);">
                                         {{education.company.title}}
                                     </div>
                                 </div>
@@ -217,127 +221,133 @@
 
 <!--      project section-->
         <div class="test-item">
-             <div class="proj-book" id="projectsection">
+            <div class="proj-book" id="projectsection">
 
 
-        <div class="title-proj bit32">Research Projects</div>
-        <div class="view-all-proj ast24">View Projects & Collaboartions here
-            <img src="media/double_arrow.svg">
-        </div>
-
-        <div class="over-wrapper" id="over-wrapper">
-            <div class="over-rect" style="order: 1;">
-                <div class="tan-rect" id="tan-rect">
-                    <div class="tan-frame" id="tan-frame">
-                        <div class="proj-name bit24">Featured Projects</div>
-                        <!-- <div class="proj-foot ast16">Prof. S.Kanagaraj (PI) | Dr. Nelson Muthu (Co-PI)</div> -->
-                        <div class="proj-carousel">
-                            <div class="splide" id="splide9">
-                                <div class="splide__arrows">
-                                    <button class="splide__arrow splide__arrow--prev">
-                                        <img src="./media/carousel_arrow_prev.svg" alt="" class="acads-arrow-prev-pos">
-                                    </button>
-                                    <button class="splide__arrow splide__arrow--next">
-                                        <img src="./media/carousel_arrow_next.svg" alt="" class="acads-arrow-next-pos">
-                                    </button>
-                                </div>
-                                <div class="splide__track">
-                                    <div class="splide__list">
-                                        {% for project in projects %}
-                                        {% if project.featured == True %}
-                                        <div class="splide__slide">
-                                            <div class="proj-card-new">
-                                                <img src="/media/{{project.image}}" alt="" class="proj-card-img">
-
-                                                <div class="proj-card-new-flex">
-                                                    <div class="proj-card-new-flex-title bit16">
-                                                        {{project.pi}}, {{project.copi}}
-                                                    </div>
-                                                    <div class="proj-card-new-flex-pname bit24">
-                                                        {{project.name}}
-                                                    </div>
-                                                    <div class="proj-card-new-flex-spon bit24">
-                                                        <div class="proj-card-new-flex-title bit16">
-                                                            {{project.type}} <br> {{project.company}} | {{project.tenure}} <br> Status: {{project.status}}
+                <div class="title-proj bit32">Research Projects</div>
+                <div class="view-all-proj ast24" style="z-index:2000;"> View Projects & Collaboartions here
+                    <a type="button" href="/projects" style="z-index:2000;text-decoration: none;"><img src="{% static 'media/d_arrow.svg' %}"></a>
+                </div>
+        
+        
+                <div class="over-wrapper" id="over-wrapper">
+                    <div class="over-rect" style="order: 1;">
+                        <div class="tan-rect" id="tan-rect">
+                            <div class="tan-frame" id="tan-frame">
+                                <div class="proj-name bit24">Featured Projects</div>
+                                <!-- <div class="proj-foot ast16">Prof. S.Kanagaraj (PI) | Dr. Nelson Muthu (Co-PI)</div> -->
+                                <div class="proj-carousel">
+                                    <div class="splide" id="splide9">
+                                        <div class="splide__arrows">
+                                            <button class="splide__arrow splide__arrow--prev">
+                                                <img src="{% static 'media/carousel_arrow_prev.svg' %}" alt="" class="acads-arrow-prev-pos">
+                                            </button>
+                                            <button class="splide__arrow splide__arrow--next">
+                                                <img src="{% static 'media/carousel_arrow_next.svg' %}" alt="" class="acads-arrow-next-pos">
+                                            </button>
+                                        </div>
+                                        <div class="splide__track">
+                                            <div class="splide__list">
+                                                {% for project in projects %}
+                                                {% if project.featured == True %}
+                                                <div class="splide__slide">
+                                                    <div class="proj-card-new">
+                                                        <div class="proj-card-img">
+                                                        <img src="/media/{{project.image}}" alt="" style="max-height: 226px;
+                                                        max-width: 430px;
+                                                        width: auto;
+                                                        height: auto; margin-left: auto;
+                margin-right: auto;">
                                                         </div>
-                                                        <div class="proj-card-new-view bit16">
-                                                            <a href="{{project.proj_id}}">View Project</a>
+        
+                                                        <div class="proj-card-new-flex">
+                                                            <div class="proj-card-new-flex-title bit16">
+                                                                {{project.pi}}, {{project.copi}}
+                                                            </div>
+                                                            <div class="proj-card-new-flex-pname bit24">
+                                                                {{project.name}}
+                                                            </div>
+                                                            <div class="proj-card-new-flex-spon bit24">
+                                                                <div class="proj-card-new-flex-title bit16">
+                                                                    {{project.type}} <br> {{project.company}} | {{project.tenure}} <br> Status: {{project.status}}
+                                                                </div>
+                                                                <div class="proj-card-new-view bit16">
+                                                                    <a href="{{project.proj_id}}" style="color : var(--blue70)">View Project</a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {% endif %}
+                                                {% endfor %}
                                             </div>
                                         </div>
-                                        {% endif %}
-                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="over-rect" style="order:0">
-                <div class="blue-rect" id="blue-rect">
-                    <div class="blue-frame" id="blue-frame">
-                        <div class="tab">
-                            <button class="tablink" onclick="openCity('SP', this)" id="defaultOpen"><div class="ast18 tab-active">Sponsored</div></button>
-                            <button class="tablink" onclick="openCity('CO', this)"><div class="ast18">Consultancy</div></button>
-                        </div>
-                        <div id="SP" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
-                            {% for project in projects %}
-                            {% if project.type == "Sponsored" %}
-                            <div class="grp-blue" id="grp-blue">
-                                <div class="date-blue bit16">{{project.tenure}} </div>
-                                <div class="blue-content ast18">{{project.name}}
+                    <div class="over-rect" style="order:0">
+                        <div class="blue-rect" id="blue-rect">
+                            <div class="blue-frame" id="blue-frame">
+                                <div class="tab" >
+                                    <div class="tablink" onclick="openCity('SP', this)" id="defaultOpen"><div class="ast18" style="text-decoration:none;">Sponsored</div></div>
+                                    <div class="tablink" onclick="openCity('CO', this)"><div class="ast18">Consultancy</div></div>
                                 </div>
-                                <div class="proj-flex-view">
-                                    <div class="iitg bit16">{{project.company}}
+                                <div id="SP" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
+                                    {% for project in projects %}
+                                    {% if project.type == "Sponsored" %}
+                                    <div class="grp-blue" id="grp-blue">
+                                        <div class="date-blue bit16">{{project.tenure}} </div>
+                                        <div class="blue-content ast18">{{project.name}}
+                                        </div>
+                                        <div class="proj-flex-view">
+                                            <div class="iitg bit16">{{project.company}}
+                                            </div>
+                                            <a href="{{project.proj_id}}"><div class="view-proj bit16">view project</div></a>
+        
+                                        </div>
+        
+                                        <div class="div-blue"></div>
+        
+        
+        
                                     </div>
-                                    <div class="view-proj bit16">view project</div>
-
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
-
-                                <div class="div-blue"></div>
-
-
-
-                            </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                        </div>
-
-                        <div id="CO" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
-                            {% for project in projects %}
-                            {% if project.type == "Consultancy" %}
-                            <div class="grp-blue" id="grp-blue">
-                                <div class="date-blue bit16">{{project.tenure}} </div>
-                                <div class="blue-content ast18">{{project.name}}
                                 </div>
-                                <div class="proj-flex-view">
-                                    <div class="iitg bit16">{{project.company}}
+        
+                                <div id="CO" class="tabcontent" style="overflow-y: scroll;"><div class="proj-overflow">
+                                    {% for project in projects %}
+                                    {% if project.type == "Consultancy" %}
+                                    <div class="grp-blue" id="grp-blue">
+                                        <div class="date-blue bit16">{{project.tenure}} </div>
+                                        <div class="blue-content ast18">{{project.name}}
+                                        </div>
+                                        <div class="proj-flex-view">
+                                            <div class="iitg bit16">{{project.company}}
+                                            </div>
+                                            <div class="view-proj bit16">view project</div>
+        
+                                        </div>
+        
+                                        <div class="div-blue"></div>
+        
+        
+        
                                     </div>
-                                    <div class="view-proj bit16">view project</div>
-
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
-
-                                <div class="div-blue"></div>
-
-
-
+                                </div>
                             </div>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
                         </div>
                     </div>
                 </div>
+        
             </div>
         </div>
-
-    </div>
-        </div>
-
 <!--        courses section-->
         <div class="test-item">
                 <div>
@@ -394,19 +404,19 @@
 
                 <div class="curr-nav-contents ast18">
                     <div >
-                        <a href="/teaching#curr_nav1">B.Tech</a>
+                        <a href="/teaching#curr_nav1" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);" >B.Tech</a>
                     </div>
                     <div class="line-curr"></div>
                     <div >
-                        <a href="/teaching#curr_nav2">M.Tech</a>
+                        <a href="/teaching#curr_nav2" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);">M.Tech</a>
                     </div>
                     <div class="line-curr"></div>
                     <div class="tab-active">
-                        <a href="#curr_nav3">Research&nbsp;Scholars</a>
+                        <a href="#curr_nav3" style="color:var(--blue70);text-decoration: underline;text-decoration-color: var(--red);">Research&nbsp;Scholars</a>
                     </div>
                     <div class="line-curr"></div>
                     <div>
-                        <a href="/teaching#curr_nav4">Project&nbsp;Staff</a>
+                        <a href="/teaching#curr_nav4" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);">Project&nbsp;Staff</a>
                     </div>
                 </div>
 
@@ -600,7 +610,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.2.0/dist/js/splide-extension-grid.min.js">
     // new Splide('#splide4').mount(window.splide.Extensions);
 </script>
-
 <script>
     // new Splide('#splide4').mount(window.splide.Extensions);
     new Splide('#splide4', {
