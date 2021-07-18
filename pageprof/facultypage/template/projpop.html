@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      {% load static %}
+     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'media/site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <link rel="stylesheet" href="{% static 'splide.min.css'%}">
 </head>
@@ -55,7 +59,7 @@
                     </div>
                 </div>
                 <div class="proj-view-val bit16">Project Value (in Lakhs) : {{project.project_value}}<br />
-                    {{project.location}} |
+                    {{project.company}} |
                     {{project.tenure}}<br /> {{project.status}}
                 </div>
                 <div class="proj-view-content ast18"> {{project.about}}

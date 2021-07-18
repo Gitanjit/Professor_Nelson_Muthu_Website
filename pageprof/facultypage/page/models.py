@@ -70,7 +70,7 @@ class Course(models.Model):
     times_conducted = models.CharField(max_length=100, help_text='Type as tenure1 | tenure2 | ... and so on  for e.g. jan2020 | july2018')
     # image = models.ImageField(upload_to='course/')
     about = models.TextField(max_length=10, blank=True, help_text='Please ignore this field')
-    special_position = models.CharField(max_length=100, help_text='e.g course coordinator etc')
+    special_position = models.TextField(max_length=100, blank=True, help_text='e.g course coordinator etc')
     add_date = models.DateTimeField(auto_now_add=True, null=True)
     clink = models.URLField(max_length=400, default='', help_text='Type as full url link e.g. https://github.com/')
     company = models.ForeignKey(Company, default=None, on_delete=models.CASCADE, help_text='Name of the institution from choices as present in company model')

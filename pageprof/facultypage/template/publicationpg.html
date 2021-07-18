@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'media/site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <link rel="stylesheet" href="{% static 'splide.min.css'%}">
 </head>
@@ -47,10 +51,10 @@
                     <div class="blue-res-body" id="blue-res-body">
                         <div class="blue-res-head">
                             <div class="spec bit18">Major Specialization
-                                <div class="sub-head bit28">Linear Elastic Fracture Mechanics</div>
+                                <div class="sub-head bit28">{% for research in researchs %}{% if research.type == "Major Specialization" %}{{research.name}}{% endif %} {% endfor %}</div>
                             </div>
                             <div class="spec bit18">Minor Specialization
-                                <div class="sub-head bit28">Linear Elastic Fracture Mechanics</div>
+                                <div class="sub-head bit28">{% for research in researchs %}{% if research.type == "Minor Specialization" %}{{research.name}}{% endif %} {% endfor %}</div>
                             </div>
 
 
@@ -62,10 +66,12 @@
 
                             <div class="grid-container">
                                 {% for research in researchs %}
+                                {% if research.type == "Normal" %}
                                 <div class="grp-1">
                                     <div class="all-inclusive"></div>
                                     <div class="text-all bit18">{{research.name}}</div>
                                 </div>
+                                {% endif %}
                                 {%endfor%}
                             </div>
 
@@ -282,7 +288,7 @@
         </div>
 
 
-        <div class="menubook" id="menu_book" style="top : 0px">
+        <div class="menubook" id="menu_book" style="top : 100px">
 
             <img class="image-menu" src="{% static 'media/journaltan.svg'%}">
         </div>
@@ -367,7 +373,7 @@
         </div>
 
 
-        <div class="menubook" id="menu_book" style="top : 0px">
+        <div class="menubook" id="menu_book" style="top : 100px">
 
             <img class="image-menu" src="{% static 'media/menu_book.svg'%}">
         </div>
@@ -451,7 +457,7 @@
         </div>
 
 
-        <div class="menubook" id="menu_book" style="top : 0px">
+        <div class="menubook" id="menu_book" style="top : 100px">
 
             <img class="image-menu" src="{% static 'media/conference.svg'%}">
         </div>
@@ -535,7 +541,7 @@
         </div>
 
 
-        <div class="menubook" id="menu_book" style="top : 0px">
+        <div class="menubook" id="menu_book" style="top : 100px">
 
             <img class="image-menu" src="{% static 'media/patt.svg'%}">
         </div>
@@ -567,7 +573,7 @@
             </div>
             <div class="rev-card-circle">
                 <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
-                <img src="{% static 'media/journal_logo.svg'%}" alt="" class="acad-card-circle-logo">
+                <img src="{% static 'media/journal_logo.svg'%}" alt="" class="acad-card-circle-logo" style="left: 26px;top: 22px;">
             </div>
         </div>
         <!-- </div> -->

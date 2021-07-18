@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'media/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'media/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'media/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'media/site.webmanifest' %}">
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <link rel="stylesheet" href="{% static 'splide.min.css'%}">
 </head>
@@ -251,7 +255,7 @@
                                 <div class="proj-flex-view">
                                     <div class="iitg bit16">{{project.company}}
                                     </div>
-                                    <div class="view-proj bit16">view project</div>
+                                    <a href="{{project.proj_id}}"><div class="view-proj bit16">view project</div></a>
 
                                 </div>
 
@@ -294,7 +298,7 @@
                             </div>
                             <div class="rev-card-circle">
                                 <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
-                                <img src="{% static 'media/indus_logo.svg'%}" alt="" class="acad-card-circle-logo">
+                                <img src="{% static 'media/indus_logo.svg'%}" alt="" class="acad-card-circle-logo" style="left: 26px;top: 22px;">
                             </div>
                         </div>
                     </div>
@@ -315,7 +319,7 @@
                             </div>
                             <div class="rev-card-circle">
                                 <img src="{% static 'media/ice_circle.svg'%}" alt="" class="acad-card-circle-ice">
-                                <img src="{% static 'media/book_logo.svg'%}" alt="" class="acad-card-circle-logo">
+                                <img src="{% static 'media/book_logo.svg'%}" alt="" class="acad-card-circle-logo" style="left: 22px;top: 24px;">
                             </div>
                         </div>
                     </div>
