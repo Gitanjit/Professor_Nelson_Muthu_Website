@@ -1,8 +1,13 @@
 from django.contrib import admin
-from .models import Education, Experience , Publication, Course, Curr_student, Passed_student, Project, ProjectImage, Review, Collaboration, Collaboration_acad, Position, Research, Company, Book, Service
+from .models import Award, Education, Experience , Publication, Course, Curr_student, Passed_student, Project, ProjectImage, Review, Collaboration, Collaboration_acad, Position, Research, Company, Book, Service
 
 
 # Register your models here.
+class AwardAdmin(admin.ModelAdmin):
+    list_display = ('aw_id', 'Title', 'About', 'Time', 'add_date')
+    search_fields = ('Title', 'add_date')
+    list_per_page = 50
+
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('comp_id', 'title', 'image_tag', 'add_date')
     search_fields = ('title', 'add_date')
@@ -118,3 +123,4 @@ admin.site.register(Research, ResearchAdmin)
 admin.site.register(Company, CompanyAdmin)
 admin.site.register(Book, BookAdmin)
 admin.site.register(Service, ServiceAdmin)
+admin.site.register(Award, AwardAdmin)

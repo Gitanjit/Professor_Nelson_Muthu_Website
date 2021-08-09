@@ -18,8 +18,8 @@
 
         <header class="header">
         <div class="first-head">
-            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
-            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+            <!-- <img class="logo_header" src="{% static 'media/iitg_logo.png'%}"> -->
+            <a class="nelson_header bit17" style="font-size: 17px;"> Dr.&nbsp;Nelson Muthu,&nbsp;IIT&nbsp;Guwahati</a>
         </div>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
@@ -133,9 +133,11 @@
                 </div>
 
                 <div class="view-cv-small">
+                    <a href= "{% static 'media/Aryan Rathod CV.pdf' %}" target="_blank" style="text-decoration:none;">
                     <div class="cv-rect" style="background: #FCF2E8;">
                         <div class="cv-text bit22" style="color: #162E41;">View CV</div>
                     </div>
+                    </a>
                 </div>
 
             </div>
@@ -192,7 +194,7 @@
                                                         {{project.pi}}, {{project.copi}}
                                                     </div>
                                                     <div class="proj-card-new-flex-pname bit24">
-                                                        {{project.name}}
+                                                        {{project.name| truncatechars_html:75}}
                                                     </div>
                                                     <div class="proj-card-new-flex-spon bit24">
                                                         <div class="proj-card-new-flex-title bit16">

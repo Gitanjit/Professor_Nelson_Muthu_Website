@@ -18,8 +18,8 @@
 
         <header class="header">
         <div class="first-head">
-            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
-            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+            <!-- <img class="logo_header" src="{% static 'media/iitg_logo.png'%}"> -->
+            <a class="nelson_header bit17" style="font-size: 17px;"> Dr.&nbsp;Nelson Muthu,&nbsp;IIT&nbsp;Guwahati</a>
         </div>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
@@ -41,12 +41,13 @@
     <div class="test-flex">
 
 <!--        research section-->
+ <div class="test-item" style="margin-top: 100px;">
             <div class="res-book" id="res-book">
         <div class="title-res bit32">
             Research
         </div>
         <div class="over-wrapper" id="over-wrapper">
-            <div class="over-rect" style="order: 0;">
+            <div class="over-rect" >
                 <div class="blue-rect-res" id="blue-rect-res">
                     <div class="blue-res-body" id="blue-res-body">
                         <div class="blue-res-head">
@@ -77,11 +78,18 @@
 
 
                         </div>
+                        <!-- <div class="view-cv-res" style="margin-bottom:0px;z-index:50">
+                            <a href= "{% static 'media/Aryan Rathod CV.pdf' %}" target="_blank" style="text-decoration:none;">
+                            <div class="cv-rect" style="background: var(--blue70);position: absolute;">
+                                <div class="cv-text bit22" style="color: white;">View CV</div>
+                            </div>
+                            </a>
+                        </div> -->
                     </div>
                 </div>
             </div>
 
-            <div class="over-rect" style="order:1">
+            <div class="over-rect">
                 <div class="tan-rect-res" id="tan-rect-res">
                     <div class="tan-res-frame" id="tan-res-frame">
                         <div class="background bit18">Background</div>
@@ -122,11 +130,12 @@
                             </div>
                         </div>
 
-
-                        <div class="view-cv-res">
-                            <div class="cv-rect">
-                                <div class="cv-text bit22">View CV</div>
+                        <div class="view-cv-res" style="margin-bottom:0px;z-index:50">
+                            <a href= "{% static 'media/Aryan Rathod CV.pdf' %}" target="_blank" style="text-decoration:none;">
+                            <div class="cv-rect" style="background: var(--blue70);position: absolute;">
+                                <div class="cv-text bit22" style="color: white;">View CV</div>
                             </div>
+                            </a>
                         </div>
 
 
@@ -140,7 +149,7 @@
 
         </div>
 
-    </div>
+    </div></div>
 
 <!--books section-->
                 {% if books %}

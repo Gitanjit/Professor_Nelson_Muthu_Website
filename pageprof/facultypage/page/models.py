@@ -3,7 +3,12 @@ from django.utils.html import format_html
 
 
 # Create your models here.
-
+class Award(models.Model):
+    aw_id= models.AutoField(primary_key=True)
+    Title= models.TextField(max_length=100, help_text='Grant or Best Paper Award etc.')
+    About= models.TextField(max_length=5000)
+    Time = models.CharField(max_length=100, help_text='Type as jan2020 or july2018 and so on')
+    add_date = models.DateTimeField(auto_now_add=True, null=True)
 
 # images for companys and instis
 class Company(models.Model):

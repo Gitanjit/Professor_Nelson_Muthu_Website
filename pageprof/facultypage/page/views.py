@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Education, Experience , Publication, Course, Curr_student, Passed_student, Project, ProjectImage, Review, Collaboration, Collaboration_acad, Position, Research, Company, Book, Service
+from .models import Award, Education, Experience , Publication, Course, Curr_student, Passed_student, Project, ProjectImage, Review, Collaboration, Collaboration_acad, Position, Research, Company, Book, Service
 
 
 # Create your views here.
 def home(request):
     educations = Education.objects.all()
+    awards = Award.objects.all()
     projects = Project.objects.all()
     projectImages = ProjectImage.objects.all()
     courses = Course.objects.all()
@@ -15,6 +16,7 @@ def home(request):
     collaboration_acads = Collaboration_acad.objects.all()
     services = Service.objects.all()
     data = {
+        'awards': awards,
         'educations': educations,
         'projects': projects,
         'projectImages': projectImages,

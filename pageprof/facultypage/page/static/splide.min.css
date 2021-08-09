@@ -154,7 +154,7 @@
 }
 
 .splide__arrow--prev {
-    left: 1em
+    left: 0;
 }
 
 .splide__arrow--prev svg {
@@ -162,7 +162,7 @@
 }
 
 .splide__arrow--next {
-    right: 1em
+    right: 0;
 }
 
 .splide__pagination {

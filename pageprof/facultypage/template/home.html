@@ -21,8 +21,8 @@
     <!-- </div> -->
         <header class="header">
         <div class="first-head">
-            <img class="logo_header" src="{% static 'media/iitg_logo.png'%}">
-            <a class="nelson_header bit17" style="font-size: 17px;"> Nelson Muthu</a>
+            <!-- <img class="logo_header" src="{% static 'media/iitg_logo.png'%}"> -->
+            <a class="nelson_header bit17" style="font-size: 17px;">Dr.&nbsp;Nelson Muthu,&nbsp;IIT&nbsp;Guwahati</a>
         </div>
         <input class="menu-btn" type="checkbox" id="menu-btn" />
         <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
@@ -119,9 +119,11 @@
                 </div>
 
                 <div class="view-cv-res" style="margin-bottom:0px;">
+                    <a href= "{% static 'media/Aryan Rathod CV.pdf' %}" target="_blank" style="text-decoration:none;">
                     <div class="cv-rect" style="background: #FCF2E8;">
                         <div class="cv-text bit22" style="color: #162E41;">View CV</div>
                     </div>
+                    </a>
                 </div>
 
             </div>
@@ -257,11 +259,7 @@
                                                 <div class="splide__slide">
                                                     <div class="proj-card-new">
                                                         <div class="proj-card-img">
-                                                        <img src="/media/{{project.image}}" alt="" style="max-height: 226px;
-                                                        max-width: 430px;
-                                                        width: auto;
-                                                        height: auto; margin-left: auto;
-                margin-right: auto;">
+                                                        <img src="/media/{{project.image}}" alt="" style="max-height: 226px;max-width: 430px;width: auto;height: auto;">
                                                         </div>
         
                                                         <div class="proj-card-new-flex">
@@ -269,7 +267,7 @@
                                                                 {{project.pi}}, {{project.copi}}
                                                             </div>
                                                             <div class="proj-card-new-flex-pname bit24">
-                                                                {{project.name}}
+                                                                {{project.name| truncatechars_html:75}}
                                                             </div>
                                                             <div class="proj-card-new-flex-spon bit24">
                                                                 <div class="proj-card-new-flex-title bit16">
@@ -398,117 +396,121 @@
             </div>
             </div>
 
-                        <!--        curr research scholars students-->
-        <div class="test-item" style="margin-bottom: 160px;">
+<!--        currstudents-->
+<div class="test-item" style="margin-bottom: 200px;">
+  
     <div class="curr-book">
-        <div class="title-curr bit32">Current Research Scholars</div>
+        <div class="title-curr bit32">Current Students And Staff</div>
 
         <div class="curr-body">
-            <div class="curr-nav" id="curr_nav3">
+            <div class="curr-nav" id="curr_nav">
 
                 <div class="curr-nav-contents ast18">
-                    <div >
-                        <a href="/teaching#curr_nav1" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);" >B.Tech</a>
-                    </div>
+                    <button class="tablink ast18" onclick="OP('BT', this)" id="deff" style="background: none;" ><div>B.Tech</div></button>
+                    <div class="line-curr " ></div>
+                    <button class="tablink ast18"  onclick="OP('MT', this)" style="background: none;"><div>M.Tech</div></button>
                     <div class="line-curr"></div>
-                    <div >
-                        <a href="/teaching#curr_nav2" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);">M.Tech</a>
-                    </div>
+                    <button class="tablink ast18"   onclick="OP('RS', this)" style="background: none;" ><div>Research&nbsp;Scholars</div></button>
                     <div class="line-curr"></div>
-                    <div class="tab-active">
-                        <a href="#curr_nav3" style="color:var(--blue70);text-decoration: underline;text-decoration-color: var(--red);">Research&nbsp;Scholars</a>
-                    </div>
-                    <div class="line-curr"></div>
-                    <div>
-                        <a href="/teaching#curr_nav4" style="color:var(--blue70);text-decoration: none;text-decoration-color: var(--red);">Project&nbsp;Staff</a>
-                    </div>
+                    <button class="tablink ast18"  onclick="OP('PS', this)" style="background: none;"><div>Project&nbsp;Staff</div></button>
                 </div>
 
             </div>
-            <div class="curr-body-content">
+                <div id="BT" class="tabcontent2" style="overflow-y: scroll;">
+                    <div class="grp-curr proj-overflow"  style="height: 450px;">
+                            {% for curr_student in curr_students %}
+                        {% if curr_student.ed_level == "B.Tech" %}
+                                <div class="grp-curr-sub">
+                                    <img class="img-curr" src="/media/{{curr_student.image}}">
+                                    <div class="inner-frame-curr">
+                                        <div class="name-curr bit17">{{curr_student.name}}</div>
+                                        <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
 
-                <div class="grp-curr">
-                    <div class="current-carousel">
-                        <div class="splide" id="splide63" style="display: flex !important;
-                            flex-direction: row-reverse !important;
-                            align-items: center !important;
-                            justify-content: space-between !important;
-                            width: auto !important;">
-
-                            <div class="splide__arrows" style="display: flex !important;
-                                flex-direction: column !important;
-                                align-items: flex-start !important;
-                                justify-content: space-between !important;
-                                max-width: 16px !important;
-                                min-height: 400px !important;">
-                                <button class="splide__arrow splide__arrow--prev" style="position: relative !important;
-                                    max-width: 64px !important;
-                                    min-height: 64px !important;
-                                    inset: 0 !important;
-                                    margin: auto !important;
-                                    background: none !important;
-                                    display: flex !important;
-                                    align-items: flex-end;
-                                    justify-content: baseline !important;">
-                                        <img src="{% static 'media/v_carousel_arrow_prev.svg'%}" alt=""
-                                            class="v_carousel_arrow_prev_pos">
-                                    </button>
-                                <button class="splide__arrow splide__arrow--next" style="position: relative !important;
-                                    max-width: 64px !important;
-                                    min-height: 64px !important;
-                                    inset: 0 !important;
-                                    margin: auto !important;
-                                    background: none !important;
-                                    display: flex !important;
-                                    align-items: flex-end;
-                                    justify-content: baseline !important;">
-                                        <img src="{% static 'media/v_carousel_arrow_next.svg'%}" alt=""
-                                            class="v_carousel_arrow_next_pos">
-                                    </button>
-                            </div>
-                            <div class="splide__track">
-
-                                <div class="splide__list">
-                                    {% for curr_student in curr_students %}
-                                {% if curr_student.ed_level == "Research Scholar" %}
-                                    <div class="splide__slide">
-
-                                        <div class="grp-curr-sub">
-                                            <img class="img-curr" src="/media/{{curr_student.image}}">
-                                            <div class="inner-frame-curr">
-                                                <div class="name-curr bit17">{{curr_student.name}}</div>
-                                                <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
-
-                                                <div class="sub-curr-flex">
-                                                    <div class="sub-curr ast16">{{curr_student.contact}}</div>
-                                                    <div class="year-curr ast16">{{curr_student.year_joining}}</div>
-                                                </div>
-                                            </div>
+                                        <div class="sub-curr-flex">
+                                            <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                            <div class="year-curr ast16">{{curr_student.year_joining}}</div>
                                         </div>
-                                        <div class="partition-curr"></div>
-
                                     </div>
-                                    {% endif %}
-                                {% endfor %}
                                 </div>
+                                <div class="partition-curr"></div>
 
-                            </div>
+                            
+                            {% endif %}
+                        {% endfor %}
+                    </div></div>
+                <div id="MT" class="tabcontent2" style="overflow-y: scroll;">
+                    <div class="grp-curr proj-overflow"  style="height: 450px;">
+                        {% for curr_student in curr_students %}
+                        {% if curr_student.ed_level == "M.Tech" %}
+                                <div class="grp-curr-sub">
+                                    <img class="img-curr" src="/media/{{curr_student.image}}">
+                                    <div class="inner-frame-curr">
+                                        <div class="name-curr bit17">{{curr_student.name}}</div>
+                                        <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
 
-                        </div>
+                                        <div class="sub-curr-flex">
+                                            <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                            <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="partition-curr"></div>
+
+                            
+                            {% endif %}
+                        {% endfor %}
                     </div>
                 </div>
+                <div id="RS" class="tabcontent2" style="overflow-y: scroll;">
+                    <div class="grp-curr proj-overflow"  style="height: 450px;">
+                        {% for curr_student in curr_students %}
+                        {% if curr_student.ed_level == "Research Scholar" %}
+                                <div class="grp-curr-sub">
+                                    <img class="img-curr" src="/media/{{curr_student.image}}">
+                                    <div class="inner-frame-curr">
+                                        <div class="name-curr bit17">{{curr_student.name}}</div>
+                                        <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
 
+                                        <div class="sub-curr-flex">
+                                            <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                            <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="partition-curr"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="PS" class="tabcontent2" style="overflow-y: scroll;">
+                    <div class="grp-curr proj-overflow"  style="height: 450px;">
+                        {% for curr_student in curr_students %}
+                        {% if curr_student.ed_level == "Project Staff" %}
+                                <div class="grp-curr-sub">
+                                    <img class="img-curr" src="/media/{{curr_student.image}}">
+                                    <div class="inner-frame-curr">
+                                        <div class="name-curr bit17">{{curr_student.name}}</div>
+                                        <div class="text-curr ast17">{{curr_student.about|linebreaks}}</div>
 
-
-
-
-
-
-
+                                        <div class="sub-curr-flex">
+                                            <div class="sub-curr ast16">{{curr_student.contact}}</div>
+                                            <div class="year-curr ast16">{{curr_student.year_joining}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="partition-curr"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>           
             </div>
+            
         </div>
+                
     </div>
-     </div>
+</div>
+    
+
+
 
         <!--        collabs section-->
         <div class="test-item">
@@ -594,6 +596,46 @@
     </div>
         </div>
 
+        <!-- achieve -->
+        <div class="test-item"><div>
+            <div class="title-acads bit32">Awards & Achievements</div>
+    
+            <div class="courses-carousel">
+                <div class="splide" id="splideac">
+                    <div class="splide__arrows">
+                        <button class="splide__arrow splide__arrow--prev">
+                            <img src="{% static 'media/carousel_arrow_prev.svg' %}" alt="" class="courses-arrow-prev-pos">
+                        </button>
+                        <button class="splide__arrow splide__arrow--next">
+                            <img src="{% static 'media/carousel_arrow_next.svg' %}" alt="" class="courses-arrow-next-pos">
+                        </button>
+                    </div>
+                    <div class="splide__track">
+                        <div class="splide__list">
+                            {% for award in awards %}
+                            <div class="splide__slide">
+                                <div class="courses-card">
+                                    <div class="courses-card-box">
+                                        <div class="courses-card-c_code bit32">
+                                            {{award.Title}}
+                                        </div>
+                        
+                                        <div class="courses-card-desc ast18">
+                                            {{award.About | linebreaks}}
+                                        </div>
+                                        <div class="courses-card-duration bit16">
+                                            {{award.Time}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div></div>
 
 
 <!--        footer-->
@@ -744,10 +786,9 @@
 </script>
 <script>
     function openCity(cityName,elmnt) {
-      var i, tabcontent, tablinks;
+      var i, tabcontent;
       tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
-
         tabcontent[i].style.display = "none";
       }
       document.getElementById(cityName).style.display = "block";
@@ -757,7 +798,8 @@
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 
-
+    </script>
+    <script>
         new Splide('#splide63', {
         perPage: 2,
         arrows: 'slider',
@@ -777,3 +819,41 @@
 
     }).mount();
 </script>
+<script>
+new Splide('#splideac', {
+    perPage: 3,
+    rewind: true,
+    height: '475px',
+    width: '1200px',
+    arrows: 'slider',
+    padding: {
+        right: '2rem',
+        left: '2rem',
+    },
+    breakpoints: {
+        '1440':{
+            width:'70vw',
+        },
+        '1300': {
+            perPage:2,
+        },
+        '900': {
+            perPage:1,
+        },
+    },
+}).mount();
+</script>
+<script>
+    function OP(kkk,elmnt) {
+      var i, tabcontent2;
+      tabcontent2 = document.getElementsByClassName("tabcontent2");
+      for (i = 0; i < tabcontent2.length; i++) {
+        tabcontent2[i].style.display = "none";
+      }
+      document.getElementById(kkk).style.display = "block";
+      elmnt.style.backgroundColor = color;
+
+    }
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("deff").click();
+        </script>
